@@ -65,7 +65,9 @@ decorator @ file:///tmp/build/80754af9/decorator_1632776554403/work
 defusedxml @ file:///tmp/build/80754af9/defusedxml_1615228127516/work
 diff-match-patch @ file:///Users/ktietz/demo/mc3/conda-bld/diff-match-patch_1630511840874/work
 distributed @ file:///C:/ci/distributed_1635968318313/work
+dj-database-url==1.0.0
 Django==3.2.9
+django-heroku==0.3.1
 django-resized==1.0.2
 docutils @ file:///C:/ci/docutils_1620828264669/work
 entrypoints==0.3
@@ -80,6 +82,7 @@ future==0.16.0
 gevent @ file:///C:/ci/gevent_1628273776273/work
 glob2 @ file:///home/linux1/recipes/ci/glob2_1610991677669/work
 greenlet @ file:///C:/ci/greenlet_1628888275363/work
+gunicorn==20.1.0
 h5py @ file:///C:/ci/h5py_1622088609188/work
 HeapDict @ file:///Users/ktietz/demo/mc3/conda-bld/heapdict_1630598515714/work
 html5lib @ file:///Users/ktietz/demo/mc3/conda-bld/html5lib_1629144453894/work
@@ -176,6 +179,7 @@ prettytable==3.3.0
 prometheus-client @ file:///tmp/build/80754af9/prometheus_client_1623189609245/work
 prompt-toolkit @ file:///tmp/build/80754af9/prompt-toolkit_1633440160888/work
 psutil @ file:///C:/ci/psutil_1612298199233/work
+psycopg2==2.9.3
 ptyprocess @ file:///tmp/build/80754af9/ptyprocess_1609355006118/work/dist/ptyprocess-0.7.0-py2.py3-none-any.whl
 py @ file:///tmp/build/80754af9/py_1607971587848/work
 pycodestyle @ file:///tmp/build/80754af9/pycodestyle_1615748559966/work
@@ -280,6 +284,7 @@ wcwidth==0.1.9
 webencodings==0.5.1
 Werkzeug @ file:///tmp/build/80754af9/werkzeug_1635505089296/work
 whichcraft @ file:///tmp/build/80754af9/whichcraft_1617751293875/work
+whitenoise==6.2.0
 widgetsnbextension @ file:///C:/ci/widgetsnbextension_1607531582688/work
 win-inet-pton @ file:///C:/ci/win_inet_pton_1605306162074/work
 win-unicode-console==0.5
