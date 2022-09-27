@@ -1,0 +1,205 @@
+*{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-image: url(/static/images/background.jpg);
+      background-size: cover;
+      transition: 0.5s;
+}
+body.active{
+      background-image: url(/static/images/marvin-meyer-SYTO3xs06fU-unsplash.jpg);
+      background-size: cover;
+}
+.container{
+      position: relative;
+      width: 800px;
+      height: 500px;
+      margin: 20px;
+      border-radius: 12px;
+      background:whitesmoke;
+      
+}
+.bg{
+      position: absolute;
+      top:40px;
+      width: 100%;
+      height: 420px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(255,255,255,0.2);
+      box-shadow: 0 5px 45px rgba(0,0,0,0.15);
+
+}
+.bg .box{
+      position: relative;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+}
+.bg .box h2{
+      color: lightslategray;
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+
+}
+.bg .box button{
+      cursor: pointer;
+      padding: 10px 20px;
+      font-size: 15px;
+      color: #333;
+      font-weight: 500;
+      border:none;
+}
+.formbox{
+position: absolute;
+top: 0;
+left: 0;
+width: 50%;
+height: 100%;
+background: linear-gradient(155deg,#4589b6,#d15be9);
+z-index: 1000;
+display: flex;
+border-radius: 12px;
+justify-content: center;
+align-items: center;
+box-shadow: 0 5px 45px rgba(0,0,0,0.25);
+transition: 0.2s ease-in-out;
+overflow: hidden;
+
+} 
+
+.formbox.active{
+      left: 50%;
+}
+.formbox .form{
+   position: absolute;
+   left: 0;
+   width: 100%;
+   padding: 50px;
+   transition: 0.3s;
+   
+}
+.formbox .signin
+{
+      transition-delay: 0.25s;
+}
+.formbox.active .signin
+{
+      left: -100%;
+      transition-delay: 0s;
+}
+.formbox .signup
+{
+      left: 100%;
+      
+      transition-delay: 0.25s;
+}
+.formbox.active .signup
+{
+      left: 0;
+      
+      transition-delay: 0s;
+}
+
+.formbox .form form
+{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+}
+.formbox .form form h3{
+      font-size: 1.2rem;
+      color:#333;
+      margin-bottom: 20px;
+      font-weight: 550;
+}
+.formbox .form form input{
+      width: 100%;
+      margin-bottom: 20px;
+      background-color:whitesmoke;
+      padding: 10px;
+      border-radius: 6px;
+      border-style: none;
+      margin-right: 10px;
+
+}
+.formbox .form form input[type="submit"]
+{
+     background:linear-gradient(155deg,#f82fab,#6531df);
+     border:none;
+     color: #fff;
+     max-width: 100px;
+     cursor: pointer; 
+}
+.formbox .form form .forgot{
+      color: #333;
+      text-decoration: none;
+}
+span.messages {
+      animation: fadeInAnimation ease 5s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+      0% {
+            opacity: 1;
+      }
+      100% {
+            opacity: 0;
+      }
+}
+
+
+@media (max-width: 991px)
+{     
+      .container
+      {
+            max-width: 400px;
+            height: 650px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+      }
+      .container .bg
+      {
+            top: 0;
+            height: 100%;
+            
+      }
+      .formbox{
+            width: 100%;
+            height: 500px;
+            top: 0;
+            box-shadow: none;
+      }
+     .bg .box
+     {
+      position: absolute;
+      width: 100%;
+      height: 150px;
+      bottom: 0;
+     }
+     .box.signin{
+           top: 0;
+     }
+   
+     .formbox.active {
+      left: 0%;
+      top:160px;
+     }
+     
+     
+     
+}

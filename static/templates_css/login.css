@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+*{
+      margin: 0;
+      padding-left: 0;
+      text-decoration: none;
+
+}
+
+.background{
+      background: rgb(172,59,97);
+      background: linear-gradient(159deg, rgba(172,59,97,1) 0%, rgba(18,60,105,1) 80%);
+      
+
+}
+.head{
+      color:linear-gradient(0deg,#25559c,#acc8f2);;
+      text-align: justify;
+      font-size: 22px;
+      
+}
+
+.content{
+      position:absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%,-50%) !important;
+      text-align: center;
+      padding: 60px 32px;
+      width: 370px;
+      z-index: 999;
+      background:rgb(244, 245, 247);
+      border-radius: 12px;
+}
+.content h2{
+      position: relative;
+      font-size: 35px;
+      font-weight: 100;
+      margin: 0 0 35px 0;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.field{
+      position: relative;
+      height: 45px;
+      width: 100%;
+      display: flex;
+      margin-bottom: 3px;
+      
+}
+.field span{
+      width: 0px;
+      line-height: 45px;
+}
+.field input{
+      height: 100%;
+      width: 100%;
+      padding: 3px;
+      background: white;
+      outline:none;
+      border: none;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      border-radius: 5px;
+      font-size: 15px;
+}
+.space{
+      margin-top: 13px;
+}
+.forgot-pass{
+      text-align: left;
+      margin: 10px 0;
+      font-size: 12px;
+}
+.forgot-pass a{
+      text-decoration: none;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.forgot-pass a:hover{
+      text-decoration: underline;
+}
+.field input[type="submit"]{
+      background:linear-gradient(-155deg,#78bfee,#7e1393);
+      border: 1px solid beige;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color: beige;
+}
+.field input[type="submit"]:hover{
+      background:linear-gradient(155deg,#78bfee,#7e1393);
+}
+.signup{
+      font-size: 14px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.signup a{
+      text-decoration: none;
+}
+.signup a:hover{
+      text-decoration: underline;
+}
+@media  screen and (max-width: 425px) {
+      .content{
+            width: 330px;
+      }
+      
+}
+@media  screen and (max-width: 410px) {
+      .content{
+            width: 300px;
+      }
+      
+}
+@media  screen and (max-width: 360px) {
+      .content{
+            width: 260px;
+      }
+      
+}

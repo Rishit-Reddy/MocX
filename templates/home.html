@@ -1,0 +1,120 @@
+{% load static %}
+{% load tz %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="short icon" href="{% static 'images/favicon/favicon.ico' %}" />
+    <link href="{% static 'templates_css/home.css' %}" rel="stylesheet">
+    <title>MocX </title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZL01SX9S0B"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZL01SX9S0B');
+    </script>
+
+</head>
+<body>
+    {% timezone request.user.user_timezone %}
+    
+
+    {% include 'includes/nav.html' %}
+    <div class="p-5 text-center mt-5"
+        style="background: rgb(172,59,97);
+        background: linear-gradient(159deg, rgba(172,59,97,1) 0%, rgba(18,60,105,1) 80%);">
+        <h1 class="mt-3 pt-3 align-items-center" style="color:  white; font-size: calc(1.568rem + .25vw)" >Hello, {{user.first_name}}</h1>
+        {% if user.is_interviewee %}
+        <h5 class="pb-3" style="color:  white; font-size: calc(1rem + .25vw)" >Find Your IELTS Speaking Examiner</h5>
+        {% elif user.is_interviewer %}
+        <h5 class="pb-3" style="color:  white; font-size: calc(1rem + .25vw)" >We Thank You For Being A Part Of Us</h5>
+        {% endif %}
+        {% if not user.is_registered %} 
+            {% if user.is_interviewee %}
+            <p class="mb-0" style="opacity: 0.5; color:white;">Please verify your email to schedule a Mock Test</p>
+            {% elif user.is_interviewer %}
+            <p class="mb-0" style="opacity: 0.5; color:white;">Please verify your email</p>
+            {% endif %}
+        {% endif %}
+    </div>
+    <section style="background-color: #f4f7f8;">
+        <div class="row">
+            <div class="col mt-3 mb-3">
+                <div class="text-uppercase sectionname" >
+                    IELTS Examiners
+                </div>
+            </div>
+        </div>
+        
+        <div class="container-fluid" >
+            <div class="row">
+                {% if interviewers %}
+                    {% for interviewer in interviewers %}
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card shadow" style="background-color: #ffffff !important;">
+                            <div class="row g-2" style="background-color:whitesmoke; border-radius:3px;">
+                                <div class="col-6 text-center" style="height: 227px;">
+                                    <img src="{{ interviewer.0.profile_image.url }}" class=" mt-1 mb-1 rounded-circle" style="margin-left:1px ;" width="130" height="130">
+                                    <div class="row">
+                                        <div class="card-title mb-0 mt-1" style="color: black;">{{ interviewer.0.first__name }} {{ interviewer.0.last__name }}</div>
+                                        <div class="card-text">IELTS Trainer</div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <p class=" text-center" style="font-size:16px !important; font-weight:bold;">Available Slots</p>
+                                    {% for schedule_slot in interviewer.1 %}
+                                        <div class="span">
+                                            
+                                            <div class="btn btn-block shadow-none p-1 mb-1  text-nowrap" style="height:42px; background-color: #123c69;color: white;">
+                                                <p class="my-2" style="font-weight: bolder;">{{ schedule_slot.start_datetime }} </p>
+                                            </div>
+                                        </div>
+                                    <!-- <div class=" mb-1 text-center">
+                                        <div class="btn btn-block shadow-none px-2 py-0 m-0" 
+                                        style="background-color: #123c69;
+                                        color: white; font-weight:bold; font-size:11px !important">
+                                        <p class="p-0" style="
+                                        margin-top: revert;
+                                        overflow-y: hidden;">{{ schedule_slot.start_datetime }}</p> 
+                                       </div>
+                                    </div>     -->
+                                {% endfor %}                          
+                                </div>
+                            </div>
+                            <div class="my-1 py-1" style="">
+                                <div class="row g-2 align-items-center">
+                                    <div class="col-7 text-center">
+                                        <a href=/{{interviewer.0.user__name}} 
+                                        class=" float-center shadow-none" 
+                                        style="margin-top: 4px;"
+                                        >
+                                        View Profile
+                                        </a>
+                                    </div>
+                                <div class="col-2"></div>
+                                <div class="col-3">
+                                <span class="float-center align-items-center">₹</span>
+                                <span class="float-center align-items-center" style="font-size: 24px; font-weight:bolder;">{{interviewer.0.price}}</span>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <p>No Interviewers</p>
+                {% endif %}
+            </div>
+        </div>
+        </section>
+        <div class="">
+        {% include 'includes/footer.html'%}
+        </div>
+{% endtimezone %}
+</body>
+</html>

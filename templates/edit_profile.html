@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {{ user.username }} | Edit Profile</title>
+
+</head>
+<body>
+    <div>
+    {% include 'includes/nav.html' %}
+    </div>
+   <!-- Make sure it displays only some data, relating to interviewers. Interviewee can modify pictures perhaps -->
+   <div class="container mt-5 pt-5 mb-5">
+   <div>
+        <h5> Edit Profile </h5>
+   </div>
+    
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form_user.as_p }}
+        {{ form_er.as_p }}
+       
+        <input type="submit" class="btn" style="background-color: #123c69; color:white;" value="Update">
+    </form>
+    </div>
+</body>
+</html>

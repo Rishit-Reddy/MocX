@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Letusmock.com/Registration</title>
+      <link rel="stylesheet" href="{% static 'Registration.css' %}">
+      <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+      
+</head>
+
+<body>
+      {% include 'nav.html' %}
+      
+      
+      <div class="container">
+            <h2 style="font-weight: lighter;text-align: center;">Let's get Started</h2>
+           
+              <form action="register" method="POST">
+                  {% csrf_token %}
+                <div class="user">
+                  
+                  
+                   <div class="input">
+                         
+                         <span 
+                         class="details">First Name</span>
+                         <input type="text" name="first_name" id="First_name" placeholder="First Name" required>
+                   </div>
+                   <div class="input">
+                        <span class="details">Last Name</span>
+                        <input type="text" name="last_name" id="last_name" placeholder="Last Name" required>
+                  </div>
+                  <div class="input">
+                        <span class="details">Email Address</Address></span>
+                        <input type="email" name="email_id" id="Email_address" placeholder="Email Address" required>
+                  </div>
+                  <div class="input">
+                        <span class="details">Phone Number</span>
+                        <input type="tel" name="phone_number" maxlength="10" id="phone" placeholder="Phone Number" required>
+                  </div>               
+                  <div class="input">
+                        <span class="details">Password</span>
+                        <input type="password" name="password1" id="pass" placeholder="Enter password" required>
+                  </div>
+                  <div class="input">
+                        <span class="details">Confirm Password</span>
+                        <input type="password" name="password2" id="Confirm_pass" placeholder="Re-enter Password" required>
+                 </div>
+                  
+              
+            </div> 
+           
+            <div class="button">
+                  <input type="submit" value="Register">
+            
+            </div>
+       </form>
+            
+      </div>
+      
+</body>
+</html>

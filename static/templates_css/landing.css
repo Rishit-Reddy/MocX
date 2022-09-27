@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+.navbar-brand{
+      font-size: calc(1.275rem + .3vw) !important;
+      color: #ac3b61 !important;
+      font-weight: 700 !important;
+      font-family: 'Lato', sans-serif;
+      margin-left: 10px !important;
+  }
+  .gradient{
+    background: rgb(172,59,97);
+    background: linear-gradient(159deg, rgba(172,59,97,1) 0%, rgba(18,60,105,1) 80%);
+  }
+  

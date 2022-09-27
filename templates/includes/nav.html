@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+  {% include 'includes/favicon.html' %}
+  <link rel="stylesheet" href="">
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>  
+  {% include 'includes/mdb.html' %}
+
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg fixed-top" style="background-color:#f7f9fb; ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/" style="color:#ac3b61 !important; margin-left:7px; font-size: xx-large !important;">MocX</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars" style="color:#ac3b61;"></i>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active p-3" style="color: #ac3b61;" aria-current="page" href="/">Home</a>
+          </li>
+        </ul>
+        <a
+          class="dropdown-toggle d-flex align-items-center p-3 hidden-arrow"
+          href=""
+          style="color: #ac3b61;"
+          id="navbarDropdownMenuLink"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+          >{{user.first_name}}</a>
+          <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdownMenuLink"
+          >
+          <li>
+            <a class="dropdown-item" style="color: #ac3b61;" href="/{{user.username}}">My profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item" style="color: #ac3b61;" href="/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</body>
+</html>
+

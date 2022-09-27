@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>MocX</title>
+      <link rel="stylesheet" href="{% static 'templates_css/Registration.css' %}">
+      <link rel="stylesheet" href="{% static 'templates_css/nav.css' %}">
+      <link rel="short icon" href="{% static 'images/favicon/favicon.ico' %}" />
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+      <script src="https://kit.fontawesome.com/a076d05399.js"></script>    
+      
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZL01SX9S0B"></script>
+      <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-ZL01SX9S0B');
+      </script>
+
+
+</head>
+<body style="background: rgb(172,59,97); background: linear-gradient(159deg, rgba(172,59,97,1) 0%, rgba(18,60,105,1) 80%);">
+
+      <nav class="navbar navbar-expand-lg fixed-top shadow" style="background-color: rgb(255, 255, 255);">
+            <div class="container-fluid">
+              <a class="navbar-brand" style="color: #ac3b61 !important; font-size: xx-large !important; margin-left: 15px !important;" href="/">MocX</a>
+            </div>
+      </nav>
+
+      <div class="container">
+            <h3 class="text-muted" style=" opacity:.5; text-align: center; margin-bottom: 10px;">LET'S GET STARTED</h3>
+           
+              <form action="register" method="POST">
+                  {% csrf_token %}
+                <div class="user">
+
+                   <div class="input">
+                        <span 
+                        class="details">First Name</span>
+                        <input type="text" name="first_name" id="First_name" placeholder="John" required>
+                  </div>
+                   <div class="input">
+                        <span class="details">Last Name</span>
+                        <input type="text" name="last_name" id="last_name" placeholder="Smith" required>
+                  </div>
+                  <div class="input">
+                        <span class="details">Email Address</Address></span>
+                        <input type="email" name="email_id" id="Email_address" placeholder="abc@example.com" required>
+                  </div>
+                  <div class="input">
+                        <span class="details">Phone Number</span>
+                        <input type="tel" name="phone_number" maxlength="10" id="phone" placeholder="9876543210" required>
+                  </div>               
+                  <div class="input">
+                        <span class="details">Password</span>
+                        <input type="password" name="password1" id="pass" placeholder="" required>
+                  </div>
+                  <div class="input">
+                        <span class="details">Confirm Password</span>
+                        <input type="password" name="password2" id="Confirm_pass" placeholder="" required>
+                  </div>              
+            </div> 
+            {% if messages %} 
+                  {% for message in messages %}
+                        {% if message.tags == 'error' %}
+                              <div class="alert alert-danger mt-2 mb-0 p-1" role="alert" style="font-size:14px">
+                                    {{message}}
+                              </div>
+                        {% endif %}
+                        {% if message.tags == 'info' %}
+                              <div class="alert alert-danger mt-2 mb-0 p-1" role="alert" style="font-size:14px">
+                                    {{message}}
+                              </div>
+                        {% endif %}
+                  {% endfor %}
+            {% endif %}
+            <div class="button">
+                  <input type="submit" value="Register">
+            </div>
+       </form>
+
+      </div> 
+</body>
+</html>

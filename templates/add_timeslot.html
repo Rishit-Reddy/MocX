@@ -1,0 +1,59 @@
+{% load static %}
+{% load tz %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {{ user.username }} | Add Time Slot </title>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet"/> -->
+
+</head>
+<body>
+    {% include 'includes/nav.html' %}
+    {% timezone request.user.user_timezone %}
+   <!-- Make sure it displays only some data, relating to interviewers. Interviewee can modify pictures perhaps -->
+    <div class="container mt-5 pt-5">
+        <div class="row">
+            <div class='col-sm-6'>
+                <div>
+                    <h5 class="mb-3"> Add Time Slot </h5>
+               </div>
+                <p> Your timezone: <b> {{ request.user.user_timezone }}  </b> </p>
+                <form action="" method="POST" enctype="multipart/form-data">
+                
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="submit" class="btn mt-2" style="background-color: #123c69; color:white;" value="Add">
+                    
+                </form>
+
+                <a class="btn mt-3" style="background-color: #ac3b61; color:white;" href="/{{user.username}}">Go Back</a>
+            </div>
+        </div>
+    </div>
+    {% endtimezone %}
+</body>
+<!-- <script>
+    $(function () {                
+        $('#datetimepicker').datetimepicker({
+              minDate: moment().startOf('minute').add(180, 'm'),
+              format: 'YYYY-MM-DD hh:mm:P'
+          });
+      });
+      
+      
+      $("#btnSubmit").click(function() {
+         value = document.getElementById('datetimepicker').value;
+         console.log(value)
+      });
+</script> -->
+</html>

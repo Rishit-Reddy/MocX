@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <!-- Bootstrap Related Files -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Bootstrap Related Files ENDS -->
+
+    <!-- Favicon -->
+    <link rel="short icon" href="{% static 'images/favicon/favicon.ico' %}" />
+    <!-- Favicon -->
+
+    <title>MocX</title>
+
+</head>
+<body>
+    {% include 'includes/nav.html' %}
+
+    {% if user.is_authenticated and user.username == user_requested.username%}
+    {% if user_requested.is_interviewee and not user_requested.is_interviewer %}
+    <div class="container mt-5 pt-5" style="min-height: 500px;">  
+        <div class="main-body">
+            <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                    <div class="card" style="background-color: whitesmoke;">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <h4>{{user_requested.first_name}} {{user_requested.last_name}}</h4>
+                                <p class="text mb-1">{{user_requested.email}}</p>
+                                <p class="text mb-1">{{user_requested.phone}}</p>
+                                <div>
+                                <a href="" class="btn btn-outline mb-2" style="background-color: #123c69; color:white;">Edit Profile</a>
+                                <a href="Change_Password" class="btn btn-outline mb-2" style="background-color: #123c69; color:white;">Change Password</a>
+                                <div class="btn" 
+                                    style="background-color: #ac3b61; color:white;"
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal6">Delete Account
+                                </div>
+                                </div>
+                                <!-- POPUP -->
+                                <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel6" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel6">Schedule Confirmation</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-8">
+                                                    Do you really want to delete your account?
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a class="btn" style="background-color: #ac3b61; color:white !important;" href="delete_user"> 
+                                                Delete Account 
+                                                </a> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- POPUP ENDS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card mb-3">
+                      <div class="card-body">
+                        <div class="row">
+                        <div class="card-text">
+                          <h4>
+                            Upcoming Schedules
+                          </h4>
+                          <div class="card shadow-none">
+                            <div class="row">
+                            {% if confirmed_slots %}
+                              {% for confirm_slot in confirmed_slots %}
+                              <div class="col-sm-3 mb-2 text-center">
+                                <div class="btn p-0 mx-1" 
+                                  style="font-size:10px;overflow-y:hidden; background-color: #123c69; color:white; font-size:9px; width:2rem; font-size: 9px !important; height: 36px !important; width: 118px !important;"
+                                  style="
+                                  margin-top: revert;
+                                  overflow-y: hidden;
+                                  font-size: unset;"
+                                  data-bs-toggle="modal" data-bs-target="#ee{{confirm_slot.id}}">
+                                  <p class="mt-2">{{ confirm_slot.start__time }}</p>
+                                </div>  
+                                <!-- POPUP -->
+                                <div class="modal" id="ee{{confirm_slot.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Schedule Confirmation</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div class="row">
+                                          <p class="col-5 text-end" style="text-align-last: end;">
+                                            Examiner Name : 
+                                          </p>
+                                          <div class="col-7 card-text text-start" style="text-align-last: start;">
+                                            {{confirm_slot.interviewer__firstname}} {{ confirm_slot.interviewer__lastname}}
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <p class="col-5 text-end" style="text-align-last: end;">
+                                            Date/Time : 
+                                          </p>
+                                          <div class="col-7 card-text text-uppercase text-start" style="text-align-last: start; font-size:small;">
+                                            {{ confirm_slot.start__time }}
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <a class="btn" style="background-color: #123c69; color:white !important;" href="/{{ confirm_slot.interviewer__username }}"> View Examiner Profile </a> 
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- POPUP ENDS -->
+                              </div>
+                              {% endfor %}
+                            {% endif %}
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %} 
+    {% endif %}
+</body>

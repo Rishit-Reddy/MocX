@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Letsusmock.com/login</title>
+      <link rel="stylesheet" href="{% static 'lore.css' %}">
+</head>
+<body>
+      {% if messages %}
+      <ul class="messages">
+      {% for message in messages %}
+      <li {% if message.tags == message.info %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+      </ul> 
+      {% endif %}    
+      <div class="container">
+            <div class="bg">
+                  <div class="box signin">
+                        <h2>Already have an account?</h2>
+                        <button style="border-radius: 10px;" class="signinBtn">Sign in</button>
+                  </div>
+                  <div class="box sign up">
+                        <h2>Don't have an account?</h2>
+                        <button style="border-radius: 10px;" class="signupBtn">Sign up</button>
+                  </div>
+            </div>
+
+            <!-- login form -->
+
+            <div id="login" class="formbox">
+
+                  <div class="form signin">
+                  <form action="login" method="POST">
+
+                        {% csrf_token %}
+
+                   <h2 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Sign in</h2>
+                   <br>
+                   <input name="email_id" type="text" placeholder="Email ID" required>
+                   <input name="password" type="password" placeholder="password" required>
+                   <p>
+                   <input type="submit" value="Login">
+                   </p>
+                   <a href="#" class="forgot">Forgot Password?</a>
+
+                  </form>
+               </div>
+
+               <!-- signup form -->
+               <a href="#register" hidden></a>
+               <div id="register" class="form signup">
+                  <form action="register" method="POST">
+                        
+                        {% csrf_token %}
+
+                        <br>
+                  <h2 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-size: 1.8rem;">Sign up</h2>
+                  <br>
+                  <h4 style="font-weight: 200;color: gold;">Let's get started</h4>
+                  <br>
+                   <input name="first_name" type="text" placeholder="First Name" required>
+                   <input name="last_name" type="text" placeholder="Last Name" required>
+                   <input name="phone_number" type="tel" placeholder="Phone Number" maxlength="10" required>
+                   <input name="email_id" type="email" placeholder="Email address" required>
+                   <input name="password1" type="password" placeholder="Password" required>
+                   <input name="password2" type="password" placeholder="Confirm Password" required>
+                   <p>
+                         <input style="width:95px;" type="submit" value="Register">
+                         
+                   </p>
+                  </form>
+               </div>
+            </div>
+      </div>
+
+<script >
+     const signinBtn = document.querySelector('.signinBtn');
+     const signupBtn = document.querySelector('.signupBtn');
+     const formbox = document.querySelector('.formbox');
+     const body = document.querySelector('body');
+     
+     
+     signupBtn.onclick = function(){
+      formbox.classList.add('active')
+      body.classList.add('active')
+     
+     }
+
+     signinBtn.onclick = function(){
+      formbox.classList.remove('active')
+      body.classList.remove('active')
+     }
+</script>
+      <a href="#login" hidden></a>
+     
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | LetUsMock</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</head>
+<body>
+    <div class="mb-3">
+    {% include 'includes/nav.html' %}
+    </div> 
+  
+    {% for interviewer in interviewers %}
+    <section class="interviewer_profiles mt-5">
+        <hr>
+        <div class="profile">
+            {{interviewer.user__name}}
+            <img src="{{ interviewer.0.profile_image.url }}" height="50", width="50">
+            <h3> {{ interviewer.0.first__name }} {{ interviewer.0.last__name }}'s Profile </h3>
+            <p> Experience: {{ interviewer.0.training_exp }}</p>
+            <a href=/{{interviewer.0.user__name }}> View Profile </a>       
+            
+         </div>
+
+         <div class="free_slots">
+            {% for schedule_slot in interviewer.1 %}
+                <p> Slot  {{ schedule_slot.start_datetime }} </p>
+            {% endfor %}
+         </div>
+        <hr>
+    </section>
+    {% endfor %}
+
+    
+
+</body>
+</html>

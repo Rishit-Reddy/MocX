@@ -1,0 +1,40 @@
+*{
+    overflow-x: hidden;
+
+}
+.interviewer_profiles{
+    margin: auto;
+}
+
+.navbar{
+    overflow-x: initial;
+}
+
+.sectionname{
+    margin-left: 1rem !important;
+    font-size: medium !important;
+    font-weight: bold !important;
+}
+
+.card {
+    background-color: white !important;
+    margin-bottom: 1.5rem !important;
+}
+.card-title{
+    font-weight: 600 !important;
+}
+.card-text{
+    font-size: small;
+    margin-top: 0%;
+    padding-top: 0;
+}
+.schedules{
+    margin-bottom: 1px ;
+} 
+.col-6{
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+}
+
+
+
