@@ -73,6 +73,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'MocX.wsgi.application'
 
 
@@ -90,6 +91,10 @@ DATABASES = {
         }
     }
 
+if "DATABASE_URL" in os.environ:
+    # Configure Django for DATABASE_URL environment variable.
+    DATABASES["default"] = dj_database_url.config(
+        conn_max_age=MAX_CONN_AGE, ssl_require=True)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -129,7 +134,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static'), ]
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static'),]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # where user media files will be stored. perhaps make it unguessable for production
 MEDIA_URL = '/media/' # accessing media through broswer with this. Obfuscate!
