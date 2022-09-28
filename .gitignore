@@ -78,7 +78,7 @@ mocx2-venv/
 media/profile_pics/*
 
 # migrations
-**/migrations/*.py
+# **/migrations/*.py
 
 # ignore staticfiles directory
 staticfiles
