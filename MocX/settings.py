@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', #This serves the static files when deployed on heroku
 ]
 
 ROOT_URLCONF = 'MocX.urls'
@@ -128,7 +129,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [ os.path.join(BASE_DIR,'static'), ]
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'staticfiles'), ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # where user media files will be stored. perhaps make it unguessable for production
 MEDIA_URL = '/media/' # accessing media through broswer with this. Obfuscate!
